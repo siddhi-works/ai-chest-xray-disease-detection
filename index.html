@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Chest X-Ray Diagnosis Assistant</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        ul {
+            padding-left: 18px;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+        }
+
+        .upload-box {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .camera-link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #667eea;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- TITLE -->
+    <div class="card">
+        <h1>Smart Chest X-Ray Diagnosis Assistant</h1>
+        <p class="subtitle">An AI-powered system for automated analysis of chest radiographs, enabling accurate detection of pulmonary conditions.</p>
+
+        <div class="badge">
+            COVID • Lung Opacity • Normal • Viral Pneumonia
+        </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="grid">
+
+        <!-- HOW TO USE -->
+        <div class="card">
+            <div class="section-title">📋 How to use</div>
+            <ul>
+                <li>Upload a chest X-ray image</li>
+                <li>Click Predict</li>
+                <li>View diagnosis & confidence</li>
+            </ul>
+
+            <div class="section-title" style="margin-top:15px;">📌 About Model</div>
+            <p style="font-size:14px; color:#555;">
+                This deep learning model uses ResNet-50 architecture to classify chest X-ray images
+                into multiple disease categories with high accuracy.
+            </p>
+        </div>
+
+        <!-- UPLOAD -->
+        <div class="card">
+            <div class="section-title">📤 Upload Image</div>
+
+            <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+
+                <div class="upload-box">
+                    <p>Drag & drop or choose file</p>
+                    <input type="file" name="file" required>
+                </div>
+
+                <br>
+                <button class="btn">🔍 Predict</button>
+            </form>
+
+            <a class="camera-link" href="{{ url_for('camera') }}">📷 Use Camera</a>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Made with  Lots of Efforts and Sleepless Nights ☕💻 by <b>Akriti Biswas</b> & <b>Siddhi Kale</b>
+    </div>
+
+</div>
+
+</body>
+</html>

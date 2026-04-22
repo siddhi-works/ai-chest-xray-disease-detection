@@ -111,6 +111,7 @@ MIT License
 
 ---
 
-## Authors
-Akriti Biswas  
+## Authors  
 Siddhi Kale  
+
+
